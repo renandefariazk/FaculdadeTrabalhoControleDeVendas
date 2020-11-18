@@ -1,0 +1,39 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "Cliente";
+}
+
+<h3>Cliente</h3>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form method="post">
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label asp-for="cli_cpf" class="control-label">CPF do Cliente</label>
+                    <input asp-for="cli_cpf" type="number" class="form-control" id="clicpf" name="clicpf" placeholder="000.000.000-00">
+                </div>
+                <div class="form-group">
+                    <label asp-for="cli_nome" class="control-label">Nome do Cliente</label>
+                    <input asp-for="cli_nome" type="text" class="form-control" id="clinome" placeholder="Nome">
+                </div>
+                <div class="form-group">
+                    <label asp-for="cli_fone" class="control-label">Telefone</label>
+                    <input asp-for="cli_fone" type="number" class="form-control" id="clifone" placeholder="Telefone">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="cli_endereco" class="control-label">Endereço</label>
+                    <input asp-for="cli_endereco" type="text" class="form-control" id="clifone" placeholder="Endereço">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit"
+                        class="btn btn-success">
+                    Finalizar Cadastro
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
