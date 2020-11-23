@@ -13,15 +13,16 @@ namespace ControleVendas.Models
 
         private static IList<ClienteModel> clientes = new List<ClienteModel>()
         {
+            new ClienteModel()
         };
 
-        public async Task<ClienteModel> Set_Cliente(ClienteModel cliente)
+        public async Task<ClienteModel> setCliente(ClienteModel cliente)
         {
             clientes.Add(cliente);
             return cliente;
         }
 
-        public IList<ClienteModel> Get_Cliente()
+        public IList<ClienteModel> getCliente()
         {
             return clientes;
         }

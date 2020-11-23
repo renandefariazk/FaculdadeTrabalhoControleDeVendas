@@ -7,10 +7,28 @@ namespace ControleVendas.Models
 {
     public class ClienteModel
     {
-        public ClienteModel() { }  
-        public int cli_cpf { get; set; }
-        public string cli_nome { get; set; }
-        public string cli_endereco { get; set; }
-        public int cli_fone { get; set; }
+
+        private string _cpf;
+        public string Nome { get; set; }
+        public string Endereco { get; set; }
+        public string Telefone { get; set; }
+
+        public ClienteModel()
+        {
+
+        }
+
+        public string Cpf 
+        {
+            get { return _cpf; }
+            set
+            {
+                if(value.Length == 11)
+                {
+                    _cpf = value;
+                }
+                
+            }
+        }
     }
 }

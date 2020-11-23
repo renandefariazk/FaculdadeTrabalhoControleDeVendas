@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProdutoModel>
+
+<div class="card-block">
+    <div class="card-header text-white bg-primary text-center h1">
+        Produtos em Estoque
+    </div>
+    <div class="card-body">
+        <table id="tabela_produtos">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Codigo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PrecoUnit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quantidade)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Codigo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrecoUnit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantidade)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer bg-success text-center">
+        <a asp-action="ProdutoCadastro" class="btn-success">
+            Cadastrar Novo Produto
+        </a>
+    </div>
+</div>

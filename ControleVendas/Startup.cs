@@ -54,7 +54,7 @@ namespace ControleVendas
 
                 endpoints.MapControllerRoute(
                     name: "cliente",
-                    pattern: "{controller=Vendas}/{action=Cliente}/{id?}");
+                    pattern: "{controller=Clientes}/{action=Cliente}/{id?}");
             });
         }
     }
