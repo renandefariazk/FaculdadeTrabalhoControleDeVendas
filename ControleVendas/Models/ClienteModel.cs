@@ -8,6 +8,7 @@ namespace ControleVendas.Models
     public class ClienteModel
     {
 
+        public long? ClienteModelId { get; set; }
         private string _cpf;
         public string Nome { get; set; }
         public string Endereco { get; set; }

@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ControleVendas.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,7 @@ namespace ControleVendas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<ControleVendasContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClienteConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +58,10 @@ namespace ControleVendas
                 endpoints.MapControllerRoute(
                     name: "cliente",
                     pattern: "{controller=Clientes}/{action=Cliente}/{id?}");
+                
+                endpoints.MapControllerRoute(
+                    name: "editar",
+                    pattern: "{controller=Clientes}/{action=Edit}/{id?}");
             });
         }
     }
