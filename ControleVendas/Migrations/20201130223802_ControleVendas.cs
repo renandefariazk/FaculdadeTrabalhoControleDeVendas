@@ -2,7 +2,7 @@
 
 namespace ControleVendas.Migrations
 {
-    public partial class ControleDeVendas : Migration
+    public partial class ControleVendas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
