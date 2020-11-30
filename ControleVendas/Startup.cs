@@ -26,7 +26,7 @@ namespace ControleVendas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<ControleVendasContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClienteConnection")));
+            services.AddDbContext<ControleVendasContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ControleVendasConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

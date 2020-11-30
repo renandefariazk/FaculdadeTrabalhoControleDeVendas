@@ -1,15 +1,15 @@
 ﻿@model ControleVendas.Models.ClienteModel
 
 @{
-    ViewData["Title"] = "Deletar";
+    ViewData["Title"] = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Deletar</h1>
+<h1>Delete</h1>
 
-<h3>Tem certeza que quer deletar isso?</h3>
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Cliente</h4>
+    <h4>ClienteModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -40,7 +40,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ClienteModelId" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar para a lista</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>
