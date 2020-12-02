@@ -23,10 +23,7 @@
                 @Html.DisplayNameFor(model => model.PrecoUnit)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecoTotal)
+                @Html.DisplayNameFor(model => model.Estoque)
             </th>
             <th></th>
         </tr>
@@ -44,10 +41,7 @@
                 @Html.DisplayFor(modelItem => item.PrecoUnit)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecoTotal)
+                @Html.DisplayFor(modelItem => item.Estoque)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProdutoModelId">Edit</a> |

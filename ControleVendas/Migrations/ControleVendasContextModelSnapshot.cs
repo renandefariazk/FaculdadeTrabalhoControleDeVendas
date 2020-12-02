@@ -43,6 +43,32 @@ namespace ControleVendas.Migrations
                     b.ToTable("Clientes");
                 });
 
+            modelBuilder.Entity("ControleVendas.Models.PedidoModel", b =>
+                {
+                    b.Property<long?>("PedidoModelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<long?>("ClienteModelId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Codigo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
+
+                    b.HasKey("PedidoModelId");
+
+                    b.HasIndex("ClienteModelId");
+
+                    b.ToTable("Pedidos");
+                });
+
             modelBuilder.Entity("ControleVendas.Models.ProdutoModel", b =>
                 {
                     b.Property<long?>("ProdutoModelId")
@@ -53,21 +79,57 @@ namespace ControleVendas.Migrations
                     b.Property<int>("Codigo")
                         .HasColumnType("int");
 
+                    b.Property<int>("Estoque")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PrecoTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("PrecoUnit")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
+                    b.Property<double>("PrecoUnit")
+                        .HasColumnType("float");
 
                     b.HasKey("ProdutoModelId");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("PedidoModelProdutoModel", b =>
+                {
+                    b.Property<long>("PedidosPedidoModelId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ProdutosProdutoModelId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("PedidosPedidoModelId", "ProdutosProdutoModelId");
+
+                    b.HasIndex("ProdutosProdutoModelId");
+
+                    b.ToTable("PedidoModelProdutoModel");
+                });
+
+            modelBuilder.Entity("ControleVendas.Models.PedidoModel", b =>
+                {
+                    b.HasOne("ControleVendas.Models.ClienteModel", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteModelId");
+
+                    b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("PedidoModelProdutoModel", b =>
+                {
+                    b.HasOne("ControleVendas.Models.PedidoModel", null)
+                        .WithMany()
+                        .HasForeignKey("PedidosPedidoModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ControleVendas.Models.ProdutoModel", null)
+                        .WithMany()
+                        .HasForeignKey("ProdutosProdutoModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
