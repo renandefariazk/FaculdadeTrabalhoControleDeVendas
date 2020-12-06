@@ -5,42 +5,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1 class="colorWhite centerH1">Clientes</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div>
+        <a asp-action="Create">Novo Cliente</a>
+</div>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Endereco)
             </th>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Telefone)
             </th>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Cpf)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Endereco)
             </td>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Telefone)
             </td>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Cpf)
             </td>
             <td>
