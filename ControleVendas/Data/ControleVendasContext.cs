@@ -16,6 +16,7 @@ namespace ControleVendas.Data
 
         public DbSet<ClienteModel> Clientes { get; set; }
         public DbSet<ProdutoModel> Produtos { get; set; }
+        public DbSet<PedidoModel> Pedidos { get; set; }
 
     } 
 }

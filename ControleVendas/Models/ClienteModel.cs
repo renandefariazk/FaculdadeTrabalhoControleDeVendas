@@ -14,6 +14,7 @@ namespace ControleVendas.Models
         public string Endereco { get; set; }
         public string Telefone { get; set; }
 
+
         public ClienteModel()
         {
 
