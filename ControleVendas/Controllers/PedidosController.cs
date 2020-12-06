@@ -49,13 +49,14 @@ namespace ControleVendas.Controllers
         public IActionResult Create()
         {
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome");
+            ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
             return View();
         }
 
       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PedidoModelId,Codigo,Data,Valor,ClienteModelId")] PedidoModel pedidoModel)
+        public async Task<IActionResult> Create([Bind("PedidoModelId,Codigo,Data,Produtos,Valor,ClienteModelId")] PedidoModel pedidoModel)
         {
             
             if (ModelState.IsValid)
@@ -64,7 +65,10 @@ namespace ControleVendas.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
                 }
+                
                 ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
+                ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
+                _context.Produtos.Add(ViewBag.produtos);
             return View(pedidoModel);
         }
 
@@ -82,6 +86,7 @@ namespace ControleVendas.Controllers
                 return NotFound();
             }
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
+            ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
             return View(pedidoModel);
         }
 
@@ -90,7 +95,7 @@ namespace ControleVendas.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("PedidoModelId,Codigo,Data,Valor,ClienteModelId")] PedidoModel pedidoModel)
+        public async Task<IActionResult> Edit(long? id, [Bind("PedidoModelId,Codigo,Data,Produtos,Valor,ClienteModelId")] PedidoModel pedidoModel)
         {
             if (id != pedidoModel.PedidoModelId)
             {
@@ -118,6 +123,7 @@ namespace ControleVendas.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
+            ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
             return View(pedidoModel);
         }
 

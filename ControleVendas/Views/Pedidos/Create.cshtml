@@ -1,11 +1,13 @@
 ﻿@model ControleVendas.Models.PedidoModel
+@using ControleVendas.Models
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<ProdutoModel> produtos = ViewBag.ProdutoModel;
 }
 
-<h1>Create</h1>
+<h1>Novo Pedido</h1>
 
 <h4>PedidoModel</h4>
 <hr />
@@ -22,6 +24,10 @@
                 <label asp-for="Data" class="control-label"></label>
                 <input asp-for="Data" class="form-control" />
                 <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produtos" class="control-label">Produto</label>
+                <select asp-for="Produtos" class="form-control" asp-items="ViewBag.produtos"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Valor" class="control-label"></label>
