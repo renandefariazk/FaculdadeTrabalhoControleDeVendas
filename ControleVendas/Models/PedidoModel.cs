@@ -14,7 +14,8 @@ namespace ControleVendas.Models
         public string Codigo { get; set; }
         public DateTime Data { get; set; }
         public double Valor { get; set; }
-        public ICollection<ProdutoModel> Produtos { get; set; } = new List<ProdutoModel>();
+        public long? ProdutoModelId { get; set; }
+        public IEnumerable<ProdutoModel> Produtos { get; set; } = new List<ProdutoModel>();
         [ForeignKey("Cliente")]
         public long? ClienteModelId { get; set; }
         public virtual ClienteModel Cliente { get; set; }
