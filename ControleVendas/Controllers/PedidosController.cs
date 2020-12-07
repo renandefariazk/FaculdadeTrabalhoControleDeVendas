@@ -19,6 +19,7 @@ namespace ControleVendas.Controllers
             _context = context;
         }
 
+
         // GET: Pedidos
         public async Task<IActionResult> Index()
         {
@@ -37,6 +38,8 @@ namespace ControleVendas.Controllers
             var pedidoModel = await _context.Pedidos
                 .Include(p => p.Cliente)
                 .FirstOrDefaultAsync(m => m.PedidoModelId == id);
+
+            
             if (pedidoModel == null)
             {
                 return NotFound();
@@ -49,7 +52,7 @@ namespace ControleVendas.Controllers
         public IActionResult Create()
         {
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome");
-            ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
+            ViewData["ProdutoModelId"] = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
             return View();
         }
 
@@ -60,15 +63,16 @@ namespace ControleVendas.Controllers
         {
             
             if (ModelState.IsValid)
+                    
             {
                 _context.Add(pedidoModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-                }
+            }
+            ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
+            ///ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
                 
-                ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
-                ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
-                _context.Produtos.Add(ViewBag.produtos);
+            _context.Produtos.Add(ViewBag.produtos.Selected);
             return View(pedidoModel);
         }
 

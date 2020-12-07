@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\GitScripts\\ControleVendasIndex\\ControleVendas\\ControleVendas.csproj": {}
+    "C:\\Users\\lucas\\source\\repos\\controleVendas2\\FaculdadeTrabalhoControleDeVendas\\ControleVendas\\ControleVendas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\GitScripts\\ControleVendasIndex\\ControleVendas\\ControleVendas.csproj": {
+    "C:\\Users\\lucas\\source\\repos\\controleVendas2\\FaculdadeTrabalhoControleDeVendas\\ControleVendas\\ControleVendas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitScripts\\ControleVendasIndex\\ControleVendas\\ControleVendas.csproj",
+        "projectUniqueName": "C:\\Users\\lucas\\source\\repos\\controleVendas2\\FaculdadeTrabalhoControleDeVendas\\ControleVendas\\ControleVendas.csproj",
         "projectName": "ControleVendas",
-        "projectPath": "C:\\Users\\User\\Desktop\\GitScripts\\ControleVendasIndex\\ControleVendas\\ControleVendas.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\GitScripts\\ControleVendasIndex\\ControleVendas\\obj\\",
+        "projectPath": "C:\\Users\\lucas\\source\\repos\\controleVendas2\\FaculdadeTrabalhoControleDeVendas\\ControleVendas\\ControleVendas.csproj",
+        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lucas\\source\\repos\\controleVendas2\\FaculdadeTrabalhoControleDeVendas\\ControleVendas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
