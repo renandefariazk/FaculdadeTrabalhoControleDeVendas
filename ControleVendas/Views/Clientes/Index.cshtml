@@ -5,24 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1 class="colorWhite">Clientes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Adicionar Cliente</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Endereco)
             </th>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Telefone)
             </th>
-            <th>
+            <th class="colorWhite">
                 @Html.DisplayNameFor(model => model.Cpf)
             </th>
             <th></th>
@@ -31,16 +31,16 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Endereco)
             </td>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Telefone)
             </td>
-            <td>
+            <td class="colorWhite">
                 @Html.DisplayFor(modelItem => item.Cpf)
             </td>
             <td>
