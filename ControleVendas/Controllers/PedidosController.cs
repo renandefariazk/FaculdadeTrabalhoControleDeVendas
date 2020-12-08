@@ -21,6 +21,9 @@ namespace ControleVendas.Controllers
 
 
         // GET: Pedidos
+        
+        
+        
         public async Task<IActionResult> Index()
         {
             var controleVendasContext = _context.Pedidos.Include(p => p.Cliente);
@@ -49,10 +52,14 @@ namespace ControleVendas.Controllers
         }
 
         // GET: Pedidos/Create
+        
         public IActionResult Create()
         {
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome");
-            ViewData["ProdutoModelId"] = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
+            //ViewData["ProdutoModelId"] = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
+            var produtos = _context.Produtos.OrderBy(i => i.ProdutoModelId).ToList();
+            produtos.Insert(0, new ProdutoModel() { ProdutoModelId = 0, Nome = "[Selecione o Produto]" });
+            ViewBag.Produtos = produtos;
             return View();
         }
 
@@ -70,9 +77,9 @@ namespace ControleVendas.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
-            ///ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
-                
-            _context.Produtos.Add(ViewBag.produtos.Selected);
+            ViewData["ProdutoModelId"] = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
+            
+
             return View(pedidoModel);
         }
 
@@ -90,7 +97,9 @@ namespace ControleVendas.Controllers
                 return NotFound();
             }
             ViewData["ClienteModelId"] = new SelectList(_context.Clientes, "ClienteModelId", "Nome", pedidoModel.ClienteModelId);
-            ViewBag.produtos = new MultiSelectList(_context.Produtos, "ProdutoModelId", "Nome");
+            var produtos = _context.Produtos.OrderBy(i => i.ProdutoModelId).ToList();
+            produtos.Insert(0, new ProdutoModel() { ProdutoModelId = 0, Nome = "[Selecione o Produto]" });
+            ViewBag.Produtos = produtos;
             return View(pedidoModel);
         }
 
