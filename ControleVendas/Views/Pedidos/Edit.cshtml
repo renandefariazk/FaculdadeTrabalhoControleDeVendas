@@ -30,7 +30,7 @@
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClienteModelId" class="control-label colorWhite"></label>
+                <label asp-for="ClienteModelId" class="control-label colorWhite">Cliente</label>
                 <select asp-for="ClienteModelId" class="form-control" asp-items="ViewBag.ClienteModelId"></select>
                 <span asp-validation-for="ClienteModelId" class="text-danger"></span>
             </div>
@@ -42,9 +42,10 @@
 </div>
 
 <div>
-    <a asp-action="Index">← Voltar</a>
+    <a class="btn btn-secondary" asp-action="Index">← Voltar</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script src="~/js/editSolucao.js"></script>
